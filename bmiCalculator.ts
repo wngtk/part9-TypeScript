@@ -1,4 +1,7 @@
 function calculateBmi(height: number, weight: number): string {
+  if (weight == 0) {
+    throw new Error('bad user input')
+  }
   const bmi = weight/Math.pow(height / 100, 2)
   let category = 'Very overweight'
   if (bmi >= 27.5) {
@@ -13,7 +16,9 @@ function calculateBmi(height: number, weight: number): string {
   return `Normal (${category} ${bmi})`
 }
 
-const height = process.argv[2]
-const weight = process.argv[3]
+// const height = process.argv[2]
+// const weight = process.argv[3]
 
-console.log(calculateBmi(180, 74))
+// console.log(calculateBmi(180, 74))
+
+export default calculateBmi
