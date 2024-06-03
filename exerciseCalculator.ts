@@ -1,3 +1,5 @@
+import { isNotNumber } from "./utils";
+
 interface Result {
   periodLength: number;
   trainingDays: number;
@@ -22,4 +24,13 @@ function calculateExercises(period: number[], target: number): Result {
   }
 }
 
-console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1], 2))
+const period = process.argv.slice(3).map(x => parseFloat(x))
+const target = parseInt(process.argv[2])
+
+for (const x of period.concat(target)) {
+  if (isNotNumber(x)) {
+    throw new Error('Provied values were not numbers!')
+  }
+}
+
+console.log(calculateExercises(period, target))
