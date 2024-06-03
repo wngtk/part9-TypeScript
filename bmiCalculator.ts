@@ -1,7 +1,4 @@
 function calculateBmi(height: number, weight: number): string {
-  if (weight == 0) {
-    throw new Error('bad user input')
-  }
   const bmi = weight/Math.pow(height / 100, 2)
   let category = 'Very overweight'
   if (bmi >= 27.5) {

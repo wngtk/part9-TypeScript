@@ -10,8 +10,10 @@ app.get('/hello', (_req, res) => {
 app.get('/bmi', (req, res) => {
   const {height, weight} = req.query
 
+  // validate the data here
+
   try {
-    const result = calculateBmi(parseFloat(height as string), parseFloat(weight as string))
+    const result = calculateBmi(Number(height), Number(weight))
     res.json({
       height,
       weight,
